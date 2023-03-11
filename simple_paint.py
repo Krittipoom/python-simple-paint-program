@@ -6,9 +6,9 @@ root = tk.Tk(className=' Simple Paint')
 root.geometry("1280x1000")
 
 def open_file(event=None):
-    canvas.delete('all')
     file_path = filedialog.askopenfilename(initialdir='/', title='Open File', filetypes=[('PNG files', '*.png')])
     if file_path:
+        canvas.delete('all')
         image = Image.open(file_path)
         canvas.image = ImageTk.PhotoImage(image)
         canvas.create_image(0, 0, image=canvas.image, anchor='nw')
